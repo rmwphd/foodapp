@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
-
-import { Tasks } from '../food.js';
+import { Food } from '../food.js';
 
 import './food2.js';
 import './body.html';
@@ -15,11 +14,11 @@ Template.body.helpers({
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {
       // If hide completed is checked, filter tasks
-      return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
+      return Food.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
     }
     // Otherwise, return all of the tasks
     // Show newest tasks at the top
-    return Tasks.find({}, { sort: { createdAt: -1 } });
+    return Food.find({}, { sort: { createdAt: -1 } });
   },
 });
 

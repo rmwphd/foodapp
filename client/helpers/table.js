@@ -7,14 +7,13 @@ dataTableData = function () {
 var optionsObject = {
     paging : false,
     columns: [{
-        title: 'Real Name',
-        data: 'profile.realname', // note: access nested data like this
+        title: 'Recipe Name',
+        data: 'food.name', // note: access nested data like this
         className: 'nameColumn'
     }, {
-        title: 'Photo',
-        data: 'profile.picture',
-        render: renderPhoto, // optional data transform, see below
-        className: 'imageColumn'
+        title: 'Book',
+        data: 'food.book',
+        className: 'bookColumn'
     }],
     // ... see jquery.dataTables docs for more
 
@@ -23,15 +22,8 @@ var optionsObject = {
 
 }
 
-function renderPhoto(cellData, renderType, currentRow) {
-    // You can return html strings, change sort order etc. here
-    // Again, see jquery.dataTables docs
-    var img = "<img src='" + cellData + "' title='" + currentRow.profile.realname + "'>"
-    return img;
-}
 
-
-Template.containsTheDataTable.helpers({
+Template.theDataTable.helpers({
     reactiveDataFunction: function () {
         return dataTableData;
     },

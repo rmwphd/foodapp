@@ -1,10 +1,10 @@
-import { Food } from '../api/food.js';
+import { Food } from '../imports/food.js';
 import { Template } from 'meteor/templating';
-  
-import './body.html';
+
+import '../imports/ui/body.html';
 
 Template.body.helpers({
   tasks() {
-    return Tasks.find({});
+    return Food.find({});
   },
 });
