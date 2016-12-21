@@ -3,23 +3,26 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './templates/table.html';
 import './main.html';
-import '../imports/ui/body.js';
 
+if (Meteor.isClient) {
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+  Template.card2.helpers({
+    counter() {
+      return Template.instance().counter.get();
+    },
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
+    lol(){
+      var lolz = [1,2,3];
+      console.log(lolz);
+      return lolz
+    },
+  });
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+  Template.card2.events({
+    'click button'(event, instance) {
+      // increment the counter when button is clicked
+      instance.counter.set(instance.counter.get() + 1);
+    },
+  });
+
+};

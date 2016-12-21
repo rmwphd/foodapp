@@ -1,5 +1,5 @@
 dataTableData = function () {
-    return Meteor.users.find().fetch(); // or .map()
+    return Meteor.Food.find().fetch(); // or .map()
 };
 
 //Set up your datatable's options as per the jquery.dataTables API, e.g.:
