@@ -1,5 +1,11 @@
+import { Template } from 'meteor/templating';
+import '../templates/cardsview.html';
+import { ReactiveVar } from 'meteor/reactive-var';
+import '../templates/table.html';
+import '../main.html';
+
 dataTableData = function () {
-    return Meteor.Food.find().fetch(); // or .map()
+    return Food.find().fetch(); // or .map()
 };
 
 //Set up your datatable's options as per the jquery.dataTables API, e.g.:
@@ -14,6 +20,18 @@ var optionsObject = {
         title: 'Book',
         data: 'food.book',
         className: 'bookColumn'
+    }, {
+        title: 'Page',
+        data: 'food.page',
+        className: 'pageColumn'
+    }, {
+        title: 'Calories',
+        data: 'food.macros.servingcals',
+        className: 'calsColumn'
+    }, {
+        title: 'Serves',
+        data: 'food.macros.serves',
+        className: 'pageColumn'
     }],
     // ... see jquery.dataTables docs for more
 

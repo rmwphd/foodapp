@@ -1,28 +1,36 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
+import './templates/cardsview.html'
 import './templates/table.html';
 import './main.html';
 
 if (Meteor.isClient) {
 
-  Template.card2.helpers({
-    counter() {
-      return Template.instance().counter.get();
-    },
+  Food = new Meteor.Collection('food');
 
-    lol(){
-      var lolz = [1,2,3];
-      console.log(lolz);
-      return lolz
+  Meteor.subscribe('food');
+
+
+
+  /**
+  * Router Configuration
+
+  Router.configure({
+    layoutTemplate: 'main'
+  });
+  Router.route('/', {
+    name: 'dashboard',
+    template: 'dashboard',
+    waitOn: function() {
+      return [Meteor.subscribe('fiscalYear'),
+      Meteor.subscribe('dashboard'),
+      Meteor.subscribe('employees'),
+      Meteor.subscribe('settings'),
+      Meteor.subscribe('projects'),
+      Meteor.subscribe('userList')];
     },
   });
-
-  Template.card2.events({
-    'click button'(event, instance) {
-      // increment the counter when button is clicked
-      instance.counter.set(instance.counter.get() + 1);
-    },
-  });
+  */
 
 };
