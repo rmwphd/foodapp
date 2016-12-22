@@ -1,0 +1,80 @@
+
+<template name="cardsview">
+
+  {{#each foods}}
+  {{> RecipeCard}}
+  {{/each}}
+</template>
+
+
+<template name="RecipeCard">
+  <div class="card" style="box-shadow: 1px 4px 1px grey;">
+    <div class="card-block">
+      <div class="card-header-blue">
+        <h4 class="card-title2">{{this.name}}</h4>
+      </div>
+      <div class="bookinfo">
+        {{this.book}}, <em>pg. {{this.page}}</em>
+      </div><br>
+      <table style="width: 100%">
+        <tr>
+          <td align="left" class="macron">Cal: {{this.macros.servingcals}}</td>
+          <td align="center"> </td>
+          <td align="right" class="macron">Serves: {{this.macros.serves}}</td>
+        </tr>
+        <tr>
+          <td align="left" class="macron">Fat: {{this.macros.fat}}</td>
+          <td align="center" class="macron">Carbs: {{this.macros.carbs}}</td>
+          <td align="right" class="macron">Pro: {{this.macros.protein}}</td>
+        </tr>
+      </table>
+      <div class="card-text-box">
+        <p class="card-text"> {{this.description}}</p>
+      </div>
+      <p align="center" style="font-size: 1.2em">Ingredients</p>
+      <hr><div class="tags"> {{#each this.tags}}
+        {{> tagbubble this}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="tagbubble">
+  <div class="card" style="border-radius: 5px 7px 7px; background: #73AD21;
+  padding-left: 3px; padding-right: 3px; width: auto; max-width: 100px; padding-bottom: 1px; color: #FFF"> {{this}} </div>
+</template>
+
+<template name="NewRecipe">
+  <div class="card">
+    <div class="card-block">
+      <div class="card-header-blue">
+        <h4 class="card-title2">Name a New Recipe</h4>
+      </div>
+      <div class="bookinfo">
+        Book Name, <em>pg. ###</em>
+      </div><br>
+      <table style="width: 100%">
+        <tr>
+          <td align="left" class="macron">Calories</td>
+          <td align="center"> </td>
+          <td align="right" class="macron">Servings</td>
+        </tr>
+        <tr>
+          <td align="left" class="macron">Fat</td>
+          <td align="center" class="macron">Carbs</td>
+          <td align="right" class="macron">Protien</td>
+        </tr>
+      </table>
+      <div class="card-text-box">
+        <p class="card-text"> Describe this new dish!</p>
+      </div>
+      <hr>
+      <div class="tags"> tags; separated by ; semicolons</div>
+    </div>
+    <p style="padding-right: 5px" align="right">
+      <button class="btn waves-effect waves-light" type="submit" name="action" style="padding-right: 10px; padding-left: 10px; background: #0275D8">Add This Recipe
+  <i class="tiny material-icons right">note_add</i>
+</button>
+ </p></div>
+</template>
