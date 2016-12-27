@@ -16,6 +16,8 @@ Template.cardsview.helpers({
  }
 });
 
+
+
  Template.RecipeCard.helpers({
 
  lmao(thing){
@@ -24,20 +26,23 @@ Template.cardsview.helpers({
 
 });
 
-Template.cardsview.events({
-  'submit .new-recipe'(event) {
+
+
+Template.NewRecipe.events({
+  'submit form' : function(event,template) {
     // Prevent default browser form submit
     event.preventDefault();
 
     // Get value from form element
     const target = event.target;
     const name = target.name.value;
+    console.log(event)
 
     // Insert a task into the collection
-    Food.insert({
-      name,
-      createdAt: new Date(), // current time
-    });
+    //Food.insert({
+    //  name,
+    //  createdAt: new Date(), // current time
+    //});
 
     // Clear form
     target.text.value = '';

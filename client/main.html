@@ -12,35 +12,49 @@
 
 <body style="background-color:#999">
   <h4>FoodApp</h4>
+  <div class="container-fluid" style="background-color:#999">
 
-<div class="container" style="background-color:#999">
-  <div class="card-columns">
+    <div class="row">
+      <div class="col s2">
+        <!--{{> searchPane}} -->
+        <h4>Tags:</h4> 
+        <div class="row">
+          {{> tagCloud}}
+        </div>
 
-    {{> cardsview}}
+      </div>
 
-    {{> card2}}
 
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">Card title that wraps to a new line</h4>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="col s9">
+        <div class="card-columns">
+
+          {{> cardsview}}
+
+          {{> card2}}
+
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title that wraps to a new line</h4>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+          <div class="card card-block">
+            <blockquote class="card-blockquote">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              <footer>
+                <small class="text-muted">
+                  Someone famous in <cite title="Source Title">Source Title</cite>
+                </small>
+              </footer>
+            </blockquote>
+          </div>
+
+          {{> NewRecipe}}
+
+        </div>
+      </div>
     </div>
   </div>
-  <div class="card card-block">
-    <blockquote class="card-blockquote">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer>
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </div>
-
-  {{> NewRecipe}}
-
-</div>
-</div>
 
   {{> theDataTable}}
 
@@ -61,11 +75,11 @@
         Book Name, <em>pg. 999</em>
       </div><br>
       <table style="width: 100%">
-          <tr>
-            <td align="left" class="macron">FAT</td>
-            <td align="center" class="macron">CARB</td>
-            <td align="right" class="macron">PRO</td>
-          </tr>
+        <tr>
+          <td align="left" class="macron">FAT</td>
+          <td align="center" class="macron">CARB</td>
+          <td align="right" class="macron">PRO</td>
+        </tr>
       </table>
       <div class="card-text-box">
         <p class="card-text"> A fiery, <em>ma la</em> Sichuan beef stir fry, rich with sesame and chili oils and vibrant with red peppers.</p>

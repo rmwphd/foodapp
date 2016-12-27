@@ -48,29 +48,31 @@
 <template name="NewRecipe">
   <div class="card">
     <div class="card-block">
+      <form>
       <div class="card-header-blue">
-        <h4 class="card-title2">Name a New Recipe</h4>
+        <h4 class="card-title2"><input name="name" class="name" type="text" value="Name a New Recipe"></h4>
       </div>
       <div class="bookinfo">
-        Book Name, <em>pg. ###</em>
+        <input name="book" class="book" type="text" value="Book Name">, <em>pg. <input name="page" class="page" type="text" value="###"></em>
       </div><br>
       <table style="width: 100%">
         <tr>
-          <td align="left" class="macron">Calories</td>
+          <td align="left" class="macron"><input name="calories" class="calories" type="text" value="Calories"></td>
           <td align="center"> </td>
-          <td align="right" class="macron">Servings</td>
+          <td align="right" class="macron"><input name="servings" class="servings" type="text" value="Servings"></td>
         </tr>
         <tr>
-          <td align="left" class="macron">Fat</td>
-          <td align="center" class="macron">Carbs</td>
-          <td align="right" class="macron">Protien</td>
+          <td align="left" class="macron"><input name="fat" class="fat" type="text" value="Fat"></td>
+          <td align="center" class="macron"><input name="carbs" class="carbs" type="text" value="Carbs"></td>
+          <td align="right" class="macron"><input name="protein" class="protein" type="text" value="Protein"></td>
         </tr>
       </table>
       <div class="card-text-box">
-        <p class="card-text"> Describe this new dish!</p>
+        <p class="card-text"><input name="description" class="description" type="text" value="Describe this new dish!"></p>
       </div>
       <hr>
-      <div class="tags"> tags; separated by ; semicolons</div>
+      <div class="tags"><input name="tags" class="tags" type="text" value="tags; separated by; semicolons"></div>
+    </form>
     </div>
     <p style="padding-right: 5px" align="right">
       <button class="btn waves-effect waves-light" type="submit" name="action" style="padding-right: 10px; padding-left: 10px; background: #0275D8">Add This Recipe
