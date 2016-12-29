@@ -3,74 +3,84 @@ import '../imports/food.js';
 import { Mongo } from 'meteor/mongo';
 
 Food = new Mongo.Collection('food');
-
 Food.attachSchema(new SimpleSchema({
   name: {
     type: String,
-    label: "Name",
+    label: "name",
+    max: 200
+  },
+  author: {
+    type: String,
+    label: "name",
+    optional: true,
     max: 200
   },
   book: {
     type: String,
     optional: true,
-    label: "Book"
+    label: "book"
   },
   page: {
     type: Number,
     optional: true,
-    label: "Page",
+    label: "page",
     min: 0
   },
-  calories: {
+  'ingredients.$': {
+    type: String,
+  },
+  macros: {
+    type: Object,
+    optional: true
+  },
+  "macros.calories": {
     type: Number,
-    label: "Calories Per Serving",
+    label: "calories",
     optional: true,
     min: 0,
     max: 2000
   },
-  serves: {
+  "macros.serves": {
     type: Number,
-    label: "Number of Servings",
+    label: "serves",
     optional: true,
     min: 0,
     max: 1000
   },
-  fat: {
+  "macros.fat": {
     type: Number,
-    label: "Fat (g)",
+    label: "fat",
     optional: true,
     min: 0,
     max: 1000
   },
-  carbs: {
+  "macros.carbs": {
     type: Number,
-    label: "Carbohydrates (g)",
+    label: "carbs",
     optional: true,
     min: 0,
     max: 1000
   },
-  protein: {
+  "macros.protein": {
     type: Number,
-    label: "Protein (g)",
+    label: "protein",
     optional: true,
     min: 0,
     max: 1000
   },
   description: {
     type: String,
-    label: "Description"
+    label: "description"
   },
   tags: {
     type: Array,
     label: 'tags'
   },
   'tags.$': {
-    type: Object
-  },
-  'tags.$.tag': {
     type: String
   },
 }));
+
 
 if (!Food.findOne()) {
   Food.update("food",{
@@ -94,14 +104,14 @@ if (!Food.findOne()) {
       "main",
       "spicy"
     ],
-    "ingredients" : {
-      "chicken breast" : "1.25 pounds",
-      "thai chiles" : "a small handful",
-      "garlic" : "5 cloves",
-      "soy sauce" : "2 oz",
-      "hoisin sauce" : "2 oz",
-      "basil" : "a cup or more"
-    }
+    "ingredients" : [
+      {"chicken breast" : "1.25 pounds"},
+      {"thai chiles" : "a small handful"},
+      {"garlic" : "5 cloves"},
+      {"soy sauce" : "2 oz"},
+      {"hoisin sauce" : "2 oz"},
+      {"basil" : "a cup or more"}
+    ]
   }, {upsert : true});
 };
 

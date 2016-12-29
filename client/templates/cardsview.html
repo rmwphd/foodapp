@@ -16,23 +16,21 @@
       <div class="bookinfo">
         {{this.book}}, <em>pg. {{this.page}}</em>
       </div><br>
-      <table style="width: 100%">
-        <tr>
-          <td align="left" class="macron">Cal: {{this.macros.servingcals}}</td>
-          <td align="center"> </td>
-          <td align="right" class="macron">Serves: {{this.macros.serves}}</td>
-        </tr>
-        <tr>
-          <td align="left" class="macron">Fat: {{this.macros.fat}}</td>
-          <td align="center" class="macron">Carbs: {{this.macros.carbs}}</td>
-          <td align="right" class="macron">Pro: {{this.macros.protein}}</td>
-        </tr>
-      </table>
-      <div class="card-text-box">
+      <div>
+        <div style="float: left;" class="macron">Cal: {{this.macros.calories}}</div>
+        <div style="float: right;" class="macron">Serves: {{this.macros.serves}}</div>
+        <br>
+        <div style="float: left;" class="macron">Fat: {{this.macros.fat}}g</div>
+        <div style="float: right;" class="macron">Pro: {{this.macros.protein}}g</div>
+        <div style="text-align: center" class="macron">Carbs: {{this.macros.carbs}}g</div>
+      </div>
+      <div class="card" style="padding:5px;">
         <p class="card-text"> {{this.description}}</p>
       </div>
-      <p align="center" style="font-size: 1.2em">Ingredients</p>
-      <hr><div class="tags"> {{#each this.tags}}
+      <div class="card" style="padding:5px;">
+        <p class="card-text"> Ingredients:</p>
+      </div>
+      <div class="tags"> {{#each this.tags}}
         {{> tagbubble this}}
         {{/each}}
       </div>
@@ -75,30 +73,27 @@
 <template name="NewRecipe">
   <div class="card">
     <div class="card-block">
-      <div class="card-header-blue">
+      <div class="card-header-green">
         <h4 id=new_name class="card-title2" contenteditable=true>Name a New Recipe</h4>
       </div>
       <div class="bookinfo">
-        <div id=new_book class="col" contenteditable=true>Book Name</div><div class="col"><em>, pg.</em></div><em><div class="col" id=new_page contenteditable=true>###</div></em>
+        <div id=new_book class="col" contenteditable=true>Book Name,</div><em><div style="padding:0px" class="col" id=new_page contenteditable=true>pg.#</div></em>
       </div><br>
-      <table style="width: 100%">
-        <tr>
-          <td align="left" class="macron" contenteditable=true id=new_calories>Calories</td>
-          <td align="center" class="macron">      </td>
-          <td align="right" class="macron" contenteditable=true id=new_serves>Servings</td>
-        </tr>
-        <tr>
-          <td align="left" class="macron" contenteditable=true id=new_fat>Fat</td>
-          <td align="center" class="macron" contenteditable=true id=new_carbs>Carbs</td>
-          <td align="right" class="macron" contenteditable=true id=new_protein>Protein</td>
-        </tr>
-      </table>
-      <div class="card-text-box">
+      <div>
+        <div style="float: left;" class="macron" contenteditable=true id=new_calories>Calories</div>
+        <div style="float: right;" class="macron" contenteditable=true id=new_serves>Servings</div>
+        <br>
+        <div style="float: left;" class="macron" contenteditable=true id=new_fat>Fat</div>
+        <div style="float: right;" class="macron" contenteditable=true id=new_protein>Protein</div>
+        <div style="text-align: center" class="macron" contenteditable=true id=new_carbs>Carbs</div>
+      </div>
+      <div class="card" style="padding:5px;">
         <p class="card-text" contenteditable=true id=new_desc>Describe this new dish!</p>
       </div>
-      <hr>
+      <div class="card" style="padding:5px;">
+        <p class="card-text" contenteditable=true id=new_desc>Add ingredients here, separated by newlines</p>
+      </div>
       <div class="tags" contenteditable=true id=new_tags>tags; separated by; semicolons</div>
-    </div>
     <p style="padding-right: 5px" align="right">
       <form id="NewRecipeHiddenForm">
         <input type="text" name="name" id="new_name_form" style="display:none;"/>
@@ -117,5 +112,6 @@
     </form>
     </p>
   </div>
+</div>
 
 </template>

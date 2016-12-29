@@ -11,66 +11,82 @@ if (Meteor.isClient) {
   Food.attachSchema(new SimpleSchema({
     name: {
       type: String,
-      label: "Name",
+      label: "name",
+      max: 200
+    },
+    author: {
+      type: String,
+      label: "name",
+      optional: true,
       max: 200
     },
     book: {
       type: String,
       optional: true,
-      label: "Book"
+      label: "book"
     },
     page: {
       type: Number,
       optional: true,
-      label: "Page",
+      label: "page",
       min: 0
     },
-    macros: {
-      type: Object
+    'ingredients.$': {
+      type: String,
     },
-    'macros.calories': {
+    macros: {
+      type: Object,
+      optional: true
+    },
+    "macros.calories": {
       type: Number,
-      label: "Calories Per Serving",
+      label: "calories",
       optional: true,
       min: 0,
       max: 2000
     },
-    'macros.serves': {
+    "macros.serves": {
       type: Number,
-      label: "Number of Servings",
+      label: "serves",
       optional: true,
       min: 0,
       max: 1000
     },
-    'macros.fat': {
+    "macros.fat": {
       type: Number,
-      label: "Fat (g)",
+      decimal: true,
+      label: "fat",
       optional: true,
       min: 0,
       max: 1000
     },
-    'macros.carbs': {
+    "macros.carbs": {
       type: Number,
-      label: "Carbohydrates (g)",
+      decimal: true,
+      label: "carbs",
       optional: true,
       min: 0,
       max: 1000
     },
-    'macros.protein': {
+    "macros.protein": {
       type: Number,
-      label: "Protein (g)",
+      decimal: true,
+      label: "protein",
       optional: true,
       min: 0,
       max: 1000
     },
     description: {
       type: String,
-      label: "Description"
+      label: "description"
     },
     tags: {
-      type: String,
-      label: "Tags"
-    }
+      type: Array,
+      label: 'tags'
+    },
+    'tags.$': {
+      type: String
+    },
   }));
 
   Meteor.subscribe('food');

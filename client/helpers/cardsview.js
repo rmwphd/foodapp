@@ -50,24 +50,38 @@ Template.NewRecipe.helpers({
 
 
 Template.NewRecipe.events({
-  'submit' : function(event) {
+
+  'mousedown button' : function(){
+    Template.NewRecipe.__helpers[" copyContent"]();
+  },
+
+  'submit' : function(event, templ) {
     // Prevent default browser form submit
     event.preventDefault();
 
     // Get value from form element
-    var yeah = Template.NewRecipe.__helpers[" copyContent"]();
-    console.log(yeah)
+    //var yeah = Template.NewRecipe.__helpers[" copyContent"]();
+    //console.log(yeah)
     console.log(event);
     console.log(event.target);
-    console.log(event.target.new_book_form);
-    //   console.log(page);
-    //
-    //
-    // Insert a task into the collection
-    //Food.insert({
-    //  name,
-    //  createdAt: new Date(), // current time
-    //});
+    console.log(event.target.new_name_form.value);
+    //console.log(event.target.new_tags_form.value.split(';'));
 
-  },
+    // Insert a task into the collection
+    Food.insert({
+      name : event.target.new_name_form.value,
+      book : event.target.new_book_form.value,
+      page : event.target.new_page_form.value,
+      macros :{
+        calories : event.target.new_calories_form.value,
+        serves : event.target.new_serves_form.value,
+        fat : event.target.new_fat_form.value,
+        carbs : event.target.new_carbs_form.value,
+        protein : event.target.new_protein_form.value
+      },
+      description : event.target.new_desc_form.value,
+      tags : event.target.new_tags_form.value.split(';')
+    });
+
+  }
 });

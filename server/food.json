@@ -20,14 +20,14 @@
         "main",
         "spicy"
       ],
-      "ingredients" : {
-        "chicken breast" : "1.25 pounds",
-        "thai chiles" : "a small handful",
-        "garlic" : "5 cloves",
-        "soy sauce" : "2 oz",
-        "hoisin sauce" : "2 oz",
-        "basil" : "a cup or more"
-      }
+      "ingredients" : [
+        {"chicken breast" : "1.25 pounds"},
+        {"thai chiles" : "a small handful"},
+        {"garlic" : "5 cloves"},
+        {"soy sauce" : "2 oz"},
+        {"hoisin sauce" : "2 oz"},
+        {"basil" : "a cup or more"}
+      ]
     }
   }
 }
