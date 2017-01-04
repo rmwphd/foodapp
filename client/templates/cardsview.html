@@ -8,7 +8,7 @@
 
 
 <template name="RecipeCard">
-  <div class="card" style="box-shadow: 1px 4px 1px grey;">
+  <div class="card recipe" style="box-shadow: 1px 4px 1px grey;">
     <div class="card-block">
       <div class="card-header-blue">
         <h4 class="card-title2">{{this.name}}</h4>
@@ -30,17 +30,12 @@
       <div class="card" style="padding:5px;">
         <p class="card-text"> Ingredients:</p>
       </div>
-      <div class="tags"> {{#each this.tags}}
+      <div class="row"> {{#each this.tags}}
         {{> tagbubble this}}
         {{/each}}
       </div>
     </div>
   </div>
-</template>
-
-<template name="tagbubble">
-  <div class="card" style="border-radius: 5px 7px 7px; background: #73AD21;
-  padding-left: 5px; padding-right: 5px; width: auto; padding-bottom: 1px; padding-top: 0px; color: #FFF">  {{this}} </div>
 </template>
 
 <template name="insertFoodForm">
@@ -91,7 +86,7 @@
         <p class="card-text" contenteditable=true id=new_desc>Describe this new dish!</p>
       </div>
       <div class="card" style="padding:5px;">
-        <p class="card-text" contenteditable=true id=new_desc>Add ingredients here, separated by newlines</p>
+        <p class="card-text" contenteditable=true id=new_ingred>Add ingredients here, separated by newlines</p>
       </div>
       <div class="tags" contenteditable=true id=new_tags>tags; separated by; semicolons</div>
     <p style="padding-right: 5px" align="right">
@@ -105,6 +100,7 @@
         <input type="text" name="carbs" id="new_carbs_form" style="display:none;"/>
         <input type="text" name="protein" id="new_protein_form" style="display:none;"/>
         <textarea name="desc" id="new_desc_form" style="display:none;"> </textarea>
+        <textarea name="desc" id="new_ingred_form" style="display:none;"> </textarea>
         <input type="text" name="tags" id="new_tags_form" style="display:none;"/>
       <button class="btn waves-effect waves-light" id="addNewFoodButton" type="submit" name="action" style="padding-right: 10px; padding-left: 10px; background: #0275D8">
         <i class="tiny material-icons left">note_add</i>Add This Recipe

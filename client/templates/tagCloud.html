@@ -1,8 +1,13 @@
 <template name="tagCloud">
+<link rel="stylesheet" href="../main.css"/>
   {{#each tags}}
   <div class = "col" style="height:32px; padding: 3px;">
     {{> tagbubble this}}
   </div>
   {{/each}}
 
+</template>
+
+<template name="tagbubble">
+  <div class="card rtag" style="width:auto"> {{..}} </div>
 </template>

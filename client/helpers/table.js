@@ -12,25 +12,26 @@ dataTableData = function () {
 
 var optionsObject = {
     paging : false,
+    tableClasses: 'display',
     columns: [{
         title: 'Recipe Name',
-        data: 'food.name', // note: access nested data like this
+        data: 'name', // note: access nested data like this
         className: 'nameColumn'
     }, {
         title: 'Book',
-        data: 'food.book',
+        data: 'book',
         className: 'bookColumn'
     }, {
         title: 'Page',
-        data: 'food.page',
+        data: 'page',
         className: 'pageColumn'
     }, {
         title: 'Calories',
-        data: 'food.macros.servingcals',
+        data: 'macros.servingcals',
         className: 'calsColumn'
     }, {
         title: 'Serves',
-        data: 'food.macros.serves',
+        data: 'macros.serves',
         className: 'pageColumn'
     }],
     // ... see jquery.dataTables docs for more
