@@ -13,7 +13,16 @@ Template.cardsview.helpers({
 
     howmanyfoods(){
         return Food.find().count();
+    },
+
+    importFoodCSV(){
+
+    },
+
+    exportJSON(){
+        
     }
+
 });
 
 //Once the Template is rendered, run this function which
@@ -124,3 +133,27 @@ Template.NewRecipe.events({
 
         }
     });
+
+
+Template.NewRecipeNew.onRendered(function(){
+
+    // add contenteditability by class "nrcef" to span,div,p
+    $('.nrcef').click(function(){
+        $(this).attr('contenteditable', 'true')
+    });
+
+    // then put in an onclick for a submit button that calls SERVER.method for creating new recipe from fields
+
+
+})
+
+Template.NewRecipeNew.events({
+
+    'mousedown .addNewRecipeNew' : function(){
+        var newrecipe = {};
+        // go get all of the nrcef values and build a newrecipe out of them!
+        Meteor.call('SERVER.addNewFood', {newrecipe});
+    },
+
+
+});

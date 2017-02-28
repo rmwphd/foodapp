@@ -4,6 +4,8 @@
   {{#each foods}}
   {{> RecipeCard}}
   {{/each}}
+
+  {{> NewRecipeNew}}
 </template>
 
 
@@ -111,3 +113,36 @@
 </div>
 
 </template>
+
+
+<template name="NewRecipeNew">
+  <div class="card recipe" style="box-shadow: 1px 4px 1px grey;">
+    <div class="card-block">
+      <div class="card-header-blue">
+        <h4 class="card-title2 nrcef name">New Recipe</h4>
+      </div>
+      <div class="bookinfo">
+        <span class="book nrcef">Book</span>, <em>pg.</em> <span class="page nrcef">##</span>
+      </div><br>
+      <div>
+        <div style="float: left;" class="macron">Cal: <span class="calories nrcef">cal</span></div>
+        <div style="float: right;" class="macron">Serves: <span class="serves nrcef">serves</span></div>
+        <br>
+        <div style="float: left;" class="macron">Fat: <span class="fat nrcef">fat</span> g</div>
+        <div style="float: right;" class="macron">Pro: <span class="protein nrcef">pro</span> g</div>
+        <div style="text-align: center" class="macron">Carbs: <span class="carbs nrcef">carbs</span> g</div>
+      </div>
+      <div class="card" style="padding:5px;">
+        <p class="card-text description nrcef">Description</p>
+      </div>
+      <div class="card" style="padding:5px;">
+        <p class="card-text nrcef"> Ingredients, separated by newline</p>
+      </div>
+      <div class="card" style="padding:5px;">
+        <p class="card-text tags nrcef">Tags; separated; by; semicolons</p>
+      </div>
+    </div>
+  </div>
+  </template>
+
+
