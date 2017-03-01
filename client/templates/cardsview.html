@@ -6,6 +6,18 @@
   {{/each}}
 
   {{> NewRecipeNew}}
+
+  <div class="fixed-action-btn vertical" style="bottom:100px;">
+    <a href="#" id="backupDatabase" class="btn-floating red tooltipped"
+    data-position="left" data-delay="50" data-tooltip="Backup Database">
+    <i class="large material-icons">settings_backup_restore</i></a>
+  </div>
+  <div class="fixed-action-btn vertical" style="bottom:50px;">
+  <a href="#importDatabase" id="importDatabase"
+    class="btn-floating modal-trigger green tooltipped"
+    data-position="left" data-delay="50" data-tooltip="Import Database">
+    <i class="large material-icons">restore</i></a>
+  </div>
 </template>
 
 
