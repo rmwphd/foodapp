@@ -32,6 +32,8 @@ Template.cardsview.events({
         if (f) {
             var r = new FileReader();
             r.onload = function(e) {
+                // Need to check for CSV or JSON here! CSV should add new recipes to the database, 
+                // JSON should auto-backup and then upsert the database.
                 var contents = e.target.result;
                 var importedJSON = JSON.parse(contents);
                 if (importedJSON["_id"] == "Food") {
@@ -54,13 +56,17 @@ Template.cardsview.events({
     },
 
     'mousedown #backupDatabase': function(event) {
-        var foodJSON = Food.find("food");
-        var exportedJSON = {};
-        if (foodJSON != undefined)
-            exportedJSON = $.extend(exportedJSON, foodJSON);
+        console.log("It's happening!")
+        var foodJSON = Food.find({book : "Collected Recipes"});
+        console.log(foodJSON)
+        
+        // var exportedJSON = {};
+        // if (foodJSON != undefined)
+        //     exportedJSON = $.extend(exportedJSON, foodJSON);
 
-        exportedJSON["_id"] = "Food";
-        var blob = new Blob([JSON.stringify(exportedJSON, null, 4)]);
+        // exportedJSON["_id"] = "Food";
+        var blob = new Blob([JSON.stringify(foodJSON, null, 4)]);
+        // var blob = new Blob([JSON.stringify(exportedJSON, null, 4)]);
         var a = window.document.createElement("a");
         a.href = window.URL.createObjectURL(blob, {
             type: "text/plain"
